@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Plans</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f6f5;padding:30px;}
+
+/* CONTAINER */
+.plan-container{
+  max-width:1100px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+.plan-container h2{
+  margin-bottom:20px;
+  color:#2e7d32;
+}
+
+/* TABLE */
+.table-wrap{
+  overflow-x:auto;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
+}
+thead{
+  background:#2e7d32;
+  color:#fff;
+}
+th,td{
+  padding:14px 15px;
+  text-align:left;
+  font-size:14px;
+}
+th{
+  font-weight:600;
+}
+tbody tr{
+  border-bottom:1px solid #ddd;
+}
+tbody tr:hover{
+  background:#f1f8f4;
+}
+
+/* STATUS */
+.status{
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+  display:inline-block;
+}
+.active{
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+.inactive{
+  background:#ffebee;
+  color:#c62828;
+}
+
+/* ACTION */
+.action-btn{
+  background:#2e7d32;
+  color:#fff;
+  padding:8px 14px;
+  border-radius:20px;
+  text-decoration:none;
+  font-size:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.action-btn i{font-size:12px;}
+.action-btn:hover{
+  background:#1b5e20;
+}
+
+/* PASSWORD MASK */
+.pass-mask{
+  letter-spacing:3px;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  body{padding:15px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="plan-container">
+  <h2><i class="fas fa-id-card"></i> Customer Plan List</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Password</th>
+          <th>Address</th>
+          <th>Pin</th>
+          <th>Mobile</th>
+          <th>Plan Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>KSC001</td>
+          <td>Mukesh Yadav</td>
+          <td class="pass-mask">****</td>
+          <td>Pipri, Dist Barwani</td>
+          <td>451447</td>
+          <td>9399497595</td>
+          <td><span class="status active">Active Plan</span></td>
+          <td>
+            <a href="#" class="action-btn">
+              <i class="fas fa-check-circle"></i> Activated
+            </a>
+          </td>
+        </tr>
+
+        <!-- future customers -->
+        <!--
+        <tr>
+          <td>KSC002</td>
+          <td>Rahul Patel</td>
+          <td class="pass-mask">****</td>
+          <td>Indore</td>
+          <td>452001</td>
+          <td>9000000000</td>
+          <td><span class="status inactive">Inactive</span></td>
+          <td>
+            <a href="#" class="action-btn">
+              <i class="fas fa-power-off"></i> Activate
+            </a>
+          </td>
+        </tr>
+        -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

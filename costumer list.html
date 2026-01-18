@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Customer Sheet – View Only</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background:#f4f6f9;
+    padding:20px;
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+/* TOP BAR */
+.top-bar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:15px;
+}
+.top-bar input, .top-bar button{
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+.admin-btn{
+    background:#1b5e20;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+}
+.download-btn{
+    background:#0d47a1;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+}
+
+/* SEARCH */
+.search-box{
+    margin-bottom:15px;
+}
+.search-box input{
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* COUNT */
+.count{
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+/* TABLE */
+.table-box{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th,td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+    font-size:14px;
+}
+th{
+    background:#1b5e20;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<h2>📋 Customer Sheet (View Only)</h2>
+
+<!-- ADMIN + DOWNLOAD -->
+<div class="top-bar">
+    <input type="password" id="adminCode" placeholder="Enter Admin Code">
+    <button class="admin-btn" onclick="unlockPassword()">Show Password</button>
+    <button class="download-btn" onclick="downloadExcel()">Download Excel</button>
+</div>
+
+<!-- SEARCH -->
+<div class="search-box">
+    <input type="text" id="search" placeholder="Search by Name / Mobile / ID" onkeyup="renderTable()">
+</div>
+
+<div class="count" id="count"></div>
+
+<!-- TABLE -->
+<div class="table-box">
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Password</th>
+    <th>Address</th>
+    <th>Pin</th>
+    <th>Mobile</th>
+</tr>
+</thead>
+<tbody id="tableBody"></tbody>
+</table>
+</div>
+
+<script>
+let showPassword = false;
+
+/* CUSTOMER DATA (CODE SE ONLY) */
+let customers = [
+    {
+        id:"KSC001",
+        name:"Mukesh Yadav",
+        password:"12345",
+        address:"Pipri, Dist Barwani",
+        pin:"451447",
+        mobile:"9399497595"
+    },
+    {
+        id:"CUST002",
+        name:"Ramesh Patel",
+        password:"67890",
+        address:"Sendhwa, Barwani",
+        pin:"451666",
+        mobile:"9826012345"
+    }
+];
+
+/* ADMIN UNLOCK */
+function unlockPassword(){
+    const code = document.getElementById("adminCode").value;
+    if(code === "5634"){
+        showPassword = true;
+        alert("Admin Access Granted");
+        renderTable();
+    }else{
+        alert("Wrong Admin Code");
+    }
+}
+
+/* TABLE RENDER */
+function renderTable(){
+    const search = document.getElementById("search").value.toLowerCase();
+    const tbody = document.getElementById("tableBody");
+    tbody.innerHTML="";
+
+    let filtered = customers.filter(c =>
+        c.name.toLowerCase().includes(search) ||
+        c.mobile.includes(search) ||
+        c.id.toLowerCase().includes(search)
+    );
+
+    filtered.forEach(c=>{
+        tbody.innerHTML += `
+        <tr>
+            <td>${c.id}</td>
+            <td>${c.name}</td>
+            <td>${showPassword ? c.password : "****"}</td>
+            <td>${c.address}</td>
+            <td>${c.pin}</td>
+            <td>${c.mobile}</td>
+        </tr>`;
+    });
+
+    document.getElementById("count").innerText =
+        "Total Customers : " + customers.length;
+}
+
+/* EXCEL DOWNLOAD */
+function downloadExcel(){
+    let csv = "ID,Name,Password,Address,Pin,Mobile\n";
+    customers.forEach(c=>{
+        csv += `${c.id},${c.name},${c.password},${c.address},${c.pin},${c.mobile}\n`;
+    });
+
+    let blob = new Blob([csv], { type: "text/csv" });
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "customer_sheet.csv";
+    link.click();
+}
+
+renderTable();
+</script>
+
+</body>
+</html>

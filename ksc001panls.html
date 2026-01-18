@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Subscription Plan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:#f2f4f8;
+    }
+    .card{
+      max-width:400px;
+      margin:40px auto;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      padding:20px;
+    }
+    h2{
+      text-align:center;
+      color:#333;
+      margin-bottom:15px;
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      margin:8px 0;
+      font-size:15px;
+    }
+    .row span{
+      font-weight:600;
+      color:#444;
+    }
+    .plan-box{
+      margin-top:15px;
+      padding:15px;
+      border-radius:10px;
+      text-align:center;
+      background:linear-gradient(135deg,#7b1fa2,#4a148c);
+      color:white;
+    }
+    .plan-box h3{
+      margin:5px 0;
+    }
+    .status{
+      margin-top:8px;
+      font-size:14px;
+      font-weight:bold;
+    }
+    .active{ color:#c8ffcc; }
+    .expired{ color:#ffd0d0; }
+    .btn{
+      margin-top:15px;
+      display:block;
+      text-align:center;
+      background:#1976d2;
+      color:white;
+      padding:10px;
+      border-radius:20px;
+      text-decoration:none;
+      font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2><i class="fas fa-user"></i> My Profile</h2>
+
+    <div class="row"><span>ID:</span> KSC001</div>
+    <div class="row"><span>Name:</span> Mukesh Yadav</div>
+    <div class="row"><span>Address:</span> Pipri, Dist Barwani</div>
+    <div class="row"><span>Pin:</span> 451447</div>
+    <div class="row"><span>Mobile:</span> 9399497595</div>
+
+    <div class="plan-box">
+      <i class="fas fa-crown" style="font-size:30px;"></i>
+      <h3>Premium Plan</h3>
+      <p>Valid Till: 30 March 2026</p>
+      <div class="status active">Status: Active</div>
+    </div>
+
+    <a href="#" class="btn">Upgrade / Renew Plan</a>
+  </div>
+
+</body>
+</html>

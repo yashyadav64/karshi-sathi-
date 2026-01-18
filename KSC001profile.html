@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f6f5;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+.profile-card{
+  background:#fff;
+  width:350px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  padding:20px;
+}
+.profile-header{
+  text-align:center;
+  margin-bottom:15px;
+}
+.profile-header h2{
+  color:#2e7d32;
+  font-size:22px;
+}
+.profile-header span{
+  font-size:13px;
+  color:#666;
+}
+.profile-row{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+  font-size:14px;
+}
+.profile-row:last-child{border-bottom:none;}
+.label{color:#555;font-weight:500;}
+.value{color:#222;font-weight:600;}
+</style>
+</head>
+<body>
+
+<div class="profile-card">
+  <div class="profile-header">
+    <h2>Customer Profile</h2>
+    <span>ID: KSC001</span>
+  </div>
+
+  <div class="profile-row">
+    <div class="label">Name</div>
+    <div class="value">Mukesh Yadav</div>
+  </div>
+
+  <div class="profile-row">
+    <div class="label">Password</div>
+    <div class="value">****</div>
+  </div>
+
+  <div class="profile-row">
+    <div class="label">Address</div>
+    <div class="value">Pipri, Dist Barwani</div>
+  </div>
+
+  <div class="profile-row">
+    <div class="label">Pincode</div>
+    <div class="value">451447</div>
+  </div>
+
+  <div class="profile-row">
+    <div class="label">Mobile</div>
+    <div class="value">9399497595</div>
+  </div>
+</div>
+
+</body>
+</html>

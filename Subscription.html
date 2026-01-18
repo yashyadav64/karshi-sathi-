@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kisan Saathi – Subscription</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#f4f6f5;padding:20px}
+h1{text-align:center;color:#2e7d32;margin-bottom:10px}
+p{text-align:center;color:#555;margin-bottom:25px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:900px;margin:auto}
+.plan{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  text-align:center;
+}
+.plan h2{color:#2e7d32;margin-bottom:5px}
+.price{font-size:26px;font-weight:700;margin:10px 0;color:#111}
+ul{list-style:none;text-align:left;margin:15px 0}
+ul li{padding:6px 0;font-size:14px;color:#444}
+ul li::before{content:"✔ ";color:#2e7d32;font-weight:700}
+button{
+  background:linear-gradient(135deg,#43a047,#2e7d32);
+  border:none;color:#fff;
+  padding:10px 20px;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:14px;
+}
+button:hover{opacity:.9}
+.active-box{
+  max-width:500px;
+  margin:30px auto 0;
+  background:#e8f5e9;
+  border:1px solid #2e7d32;
+  border-radius:12px;
+  padding:15px;
+  text-align:center;
+  color:#1b5e20;
+  font-weight:600;
+  display:none;
+}
+.info-box{
+  max-width:700px;
+  margin:30px auto;
+  background:#fff3cd;
+  border:1px solid #ffeeba;
+  color:#856404;
+  padding:15px;
+  border-radius:10px;
+  font-size:14px;
+}
+.link-box{
+  max-width:600px;
+  margin:20px auto;
+  text-align:center;
+}
+.link-box a{
+  display:inline-block;
+  background:linear-gradient(135deg,#43a047,#2e7d32);
+  color:white;
+  padding:12px 25px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+}
+.link-box a:hover{opacity:.9}
+</style>
+</head>
+<body>
+
+<h1>Kisan Saathi Subscription Plans</h1>
+<p>Kisan bhaiyon ke liye sasta aur faydemand plan</p>
+
+<div class="plans">
+
+  <div class="plan">
+    <h2>Basic</h2>
+    <div class="price">₹49 / Month</div>
+    <ul>
+      <li>Daily Weather Update</li>
+      <li>Fasal ke basic tips</li>
+      <li>Market price dekh sakta hai</li>
+      <li>Articles & news</li>
+      <li>Profile access</li>
+    </ul>
+    <button onclick="subscribe('Basic',49)">Subscribe Now</button>
+  </div>
+
+  <div class="plan">
+    <h2>Standard</h2>
+    <div class="price">₹99 / Month</div>
+    <ul>
+      <li>Basic ke sab feature</li>
+      <li>Seed & Fertilizer guide</li>
+      <li>Machinery rent info</li>
+      <li>WhatsApp/SMS alert</li>
+      <li>Support call (limited)</li>
+      <li>Profile access</li>
+    </ul>
+    <button onclick="subscribe('Standard',99)">Subscribe Now</button>
+  </div>
+
+  <div class="plan">
+    <h2>Premium</h2>
+    <div class="price">₹199 / Month</div>
+    <ul>
+      <li>Standard ke sab feature</li>
+      <li>Expert se direct baat</li>
+      <li>Personal crop planning</li>
+      <li>Govt scheme help</li>
+      <li>Priority service</li>
+      <li>24x7 support</li>
+      <li>Profile access</li>
+    </ul>
+    <button onclick="subscribe('Premium',199)">Subscribe Now</button>
+  </div>
+
+</div>
+
+<div class="active-box" id="activeBox"></div>
+
+<div class="info-box">
+  ⚠️ Payment karne ke baad 3 ghante ke andar aapka plan activate ho jayega.<br>
+  Payment karte samay screenshot le.<br>
+  Niche diye gaye button se Google Form bhar ke screenshot upload kare.
+</div>
+
+<div class="link-box">
+  <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank">
+    Payment Proof Submit Kare (Google Form)
+  </a>
+</div>
+
+<script>
+function subscribe(plan,price){
+  let start = new Date();
+  let end = new Date();
+  end.setDate(start.getDate()+30);
+
+  let data = {
+    plan:plan,
+    price:price,
+    start:start.toDateString(),
+    end:end.toDateString()
+  };
+
+  localStorage.setItem("ks_subscription",JSON.stringify(data));
+  showActive();
+}
+
+function showActive(){
+  let box = document.getElementById("activeBox");
+  let data = localStorage.getItem("ks_subscription");
+  if(!data) return;
+
+  let sub = JSON.parse(data);
+  box.style.display="block";
+  box.innerHTML = `
+    Aapka Plan Active Hai 🎉<br>
+    Plan: ${sub.plan}<br>
+    Price: ₹${sub.price}<br>
+    Start: ${sub.start}<br>
+    End: ${sub.end}
+  `;
+}
+
+showActive();
+</script>
+
+</body>
+</html>

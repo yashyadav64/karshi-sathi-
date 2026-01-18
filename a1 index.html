@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
+/* SAME STYLE + SMALL ADDITIONS */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#f4f6f5;padding-top:70px;}
 header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.08);z-index:1000;}
@@ -16,30 +17,31 @@ header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 4px 15px rgb
 .nav-links{display:flex;gap:25px;align-items:center;}
 .nav-links a{text-decoration:none;color:#2e7d32;font-weight:500;}
 .nav-links a:hover{color:#1b5e20;}
-.login-btn{
-  background:linear-gradient(135deg,#43a047,#2e7d32);
-  color:#fff;padding:8px 18px;border-radius:25px;
-  display:flex;align-items:center;gap:8px;
-  font-size:14px;text-decoration:none;
-}
+.login-btn{background:linear-gradient(135deg,#43a047,#2e7d32);color:#fff;padding:8px 18px;border-radius:25px;display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;}
+.profile{position:relative;cursor:pointer;display:none;}
+.profile-box{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:25px;background:#e8f5e9;}
+.profile-box img{height:34px;width:34px;border-radius:50%;}
+.profile-box span{font-size:14px;font-weight:600;color:#2e7d32;}
+.profile-menu{position:absolute;top:55px;right:0;width:200px;background:#fff;border-radius:12px;box-shadow:0 12px 25px rgba(0,0,0,.15);display:none;}
+.profile-menu a{display:flex;align-items:center;gap:10px;padding:12px 15px;text-decoration:none;color:#333;font-size:14px;}
+.profile-menu a i{color:#2e7d32;}
+.profile-menu a:hover{background:#e8f5e9;}
 .menu-btn{font-size:24px;color:#2e7d32;display:none;cursor:pointer;}
 .sidebar{position:fixed;top:0;left:-260px;width:260px;height:100vh;background:#2e7d32;padding:20px;transition:.3s;z-index:2000;}
 .sidebar .close-btn{font-size:26px;color:#fff;text-align:right;cursor:pointer;}
 .sidebar a{display:flex;align-items:center;gap:10px;padding:15px 0;color:#fff;text-decoration:none;font-size:16px;}
 .sidebar a:hover{background:rgba(255,255,255,.15);padding-left:10px;}
-
+@media(max-width:900px){
+  .nav-links,.login-btn,.profile{display:none;}
+  .menu-btn{display:block;}
+}
 .services-drop{position:relative;}
 .services-menu{
   position:absolute;top:35px;left:0;background:#fff;border-radius:10px;
   box-shadow:0 8px 20px rgba(0,0,0,.15);display:none;min-width:220px;
 }
-.services-menu a{padding:10px 15px;display:block;color:#333;text-decoration:none;}
+.services-menu a{padding:10px 15px;display:block;color:#333;}
 .services-menu a:hover{background:#e8f5e9;}
-
-@media(max-width:900px){
-  .nav-links,.login-btn{display:none;}
-  .menu-btn{display:block;}
-}
 </style>
 </head>
 <body>
@@ -54,9 +56,8 @@ header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 4px 15px rgb
   <a href="#"><i class="fas fa-tractor"></i> Machinery</a>
   <a href="#"><i class="fas fa-cloud-sun"></i> Weather</a>
   <a href="#"><i class="fas fa-chart-line"></i> Market Price</a>
-  <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
-  <a href="login.html"><i class="fas fa-briefcase"></i> Krishi Sathi Jobs</a>
-
+  <a href="#"><i class="fas fa-user"></i> My Profile</a>
+  <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
 <header>
@@ -87,133 +88,50 @@ header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 4px 15px rgb
   </div>
 
   <!-- LOGIN -->
-  <a href="c login.html" class="login-btn">
+  <div class="login-btn" id="loginBtn" onclick="login()">
     <i class="fas fa-sign-in-alt"></i> Login
-  </a>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="profile" id="profileBox" onclick="toggleProfile()">
+    <div class="profile-box">
+      <img src="https://i.pravatar.cc/100">
+      <span id="userName">Yash</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="profile-menu" id="profileMenu">
+      <a href="#"><i class="fas fa-user"></i> Profile</a>
+      <a href="#"><i class="fas fa-table"></i> Dashboard</a>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+      <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </div>
 
   <div class="menu-btn" onclick="openMenu()">
     <i class="fas fa-bars"></i>
   </div>
 </div>
 </header>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us Section</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#ffffff;
-}
-
-/* ===== ABOUT SECTION ===== */
-.about-section{
-    padding:80px 20px;
-}
-
-.about-container{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:50px;
-}
-
-.about-text{
-    flex:1;
-}
-
-.about-text h2{
-    font-size:36px;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-.about-text h2 span{
-    color:#2e7d32;
-}
-
-.about-text p{
-    font-size:16px;
-    line-height:1.8;
-    color:#000;
-}
-
-/* IMAGE */
-.about-image{
-    flex:1;
-    display:flex;
-    justify-content:center;
-}
-
-.about-image img{
-    width:380px;
-    height:380px;
-    object-fit:cover;
-    border-radius:50%;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .about-container{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .about-text h2{
-        font-size:28px;
-    }
-
-    .about-image img{
-        width:300px;
-        height:300px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<section class="about-section">
-    <div class="about-container">
-
-        <div class="about-text">
-            <h2><span>About</span> Us</h2>
-            <p>
-                We are Kisan Saathi – one of the prominent players in FPO model
-                engagement established in 2015. An initiative to build FPO's of
-                India – creating self sustainability and better farm income
-                realisation for farmers, FPO's through effective capacity
-                building, FPO Management, collectivisation approach,
-                agronomy, cultivating practices, transfer of technology,
-                improved post harvest management and efficient front end
-                market linkages.
-            </p>
-        </div>
-
-        <div class="about-image">
-            <img src="https://www.kisansaathi.com/drone.webp" alt="Agriculture Technology">
-        </div>
-
-    </div>
-</section>
-
-</body>
-</html>
 
 <script>
+let loggedIn=false;
+
+function login(){
+  loggedIn=true;
+  document.getElementById("loginBtn").style.display="none";
+  document.getElementById("profileBox").style.display="block";
+  alert("Login Success!");
+}
+function logout(){
+  loggedIn=false;
+  document.getElementById("loginBtn").style.display="flex";
+  document.getElementById("profileBox").style.display="none";
+  closeMenu();
+}
+function toggleProfile(){
+  const m=document.getElementById("profileMenu");
+  m.style.display = m.style.display==="block" ? "none":"block";
+}
 function toggleServices(e){
   e.preventDefault();
   const s=document.getElementById("servicesMenu");

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisan Saathi – Krishi Saathi Jobs</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f6f5;padding-top:75px;}
+
+/* ================= HEADER ================= */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+  z-index:1000;
+}
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:22px;
+  font-weight:700;
+  color:#2e7d32;
+}
+.logo img{height:40px;}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+}
+.nav-links a{
+  text-decoration:none;
+  color:#2e7d32;
+  font-weight:500;
+}
+.nav-links a:hover{color:#1b5e20;}
+
+.menu-btn{
+  font-size:24px;
+  color:#2e7d32;
+  display:none;
+  cursor:pointer;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100vh;
+  background:#2e7d32;
+  padding:20px;
+  transition:.3s;
+  z-index:2000;
+  overflow-y:auto;
+}
+.sidebar .close-btn{
+  font-size:26px;
+  color:#fff;
+  text-align:right;
+  cursor:pointer;
+}
+.sidebar a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 10px;
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  border-radius:6px;
+}
+.sidebar a:hover{background:rgba(255,255,255,.15);}
+
+/* ================= JOBS SECTION ================= */
+.jobs-section{
+  padding:90px 20px;
+  background:linear-gradient(135deg,#e8f5e9,#f1f8f4);
+}
+.jobs-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:50px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.jobs-left{flex:1;}
+.jobs-left h2{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+.jobs-left h2 span{color:#2e7d32;}
+.jobs-left p{
+  font-size:16px;
+  line-height:1.8;
+  color:#333;
+  margin-bottom:25px;
+}
+
+.jobs-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 28px;
+  background:linear-gradient(135deg,#43a047,#2e7d32);
+  color:#fff;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.2);
+  transition:.3s;
+}
+.jobs-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,0,0,.3);
+}
+
+/* JOB CARDS */
+.jobs-right{
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.job-card{
+  background:#fff;
+  padding:22px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
+  transition:.3s;
+}
+.job-card i{
+  font-size:30px;
+  color:#2e7d32;
+  margin-bottom:10px;
+}
+.job-card h4{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+.job-card span{
+  font-size:14px;
+  color:#555;
+}
+.job-card:hover{transform:translateY(-5px);}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .menu-btn{display:block;}
+  .jobs-container{
+    flex-direction:column;
+    text-align:center;
+  }
+  .jobs-right{
+    grid-template-columns:1fr;
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="closeMenu()">&times;</div>
+  <a href="#"><i class="fas fa-home"></i> Home</a>
+  <a href="#"><i class="fas fa-info-circle"></i> About</a>
+  <a href="#"><i class="fas fa-briefcase"></i> Krishi Saathi Jobs</a>
+  <a href="#"><i class="fas fa-seedling"></i> Seeds & Fertilizer</a>
+  <a href="#"><i class="fas fa-tractor"></i> Machinery</a>
+  <a href="#"><i class="fas fa-phone"></i> Support</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2909/2909767.png">
+      Kisan Saathi
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Jobs</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="menu-btn" onclick="openMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<!-- ================= JOBS SECTION ================= -->
+<section class="jobs-section">
+  <div class="jobs-container">
+
+    <div class="jobs-left">
+      <h2>🌾 Krishi Saathi <span>Jobs</span></h2>
+      <p>
+        Agriculture sector ke liye best job opportunities.
+        Field work, supervisor, sales aur office jobs – sab ek hi jagah.
+      </p>
+
+      <a href="jobs.html" class="jobs-btn">
+        <i class="fas fa-briefcase"></i> View Jobs & Apply
+      </a>
+    </div>
+
+    <div class="jobs-right">
+      <div class="job-card">
+        <i class="fas fa-user-tie"></i>
+        <h4>Field Executive</h4>
+        <span>₹12,000 – ₹18,000</span>
+      </div>
+
+      <div class="job-card">
+        <i class="fas fa-tractor"></i>
+        <h4>Agro Supervisor</h4>
+        <span>₹15,000 – ₹25,000</span>
+      </div>
+
+      <div class="job-card">
+        <i class="fas fa-chart-line"></i>
+        <h4>Sales Officer</h4>
+        <span>₹18,000 – ₹30,000</span>
+      </div>
+
+      <div class="job-card">
+        <i class="fas fa-store"></i>
+        <h4>Store Manager</h4>
+        <span>₹20,000 – ₹35,000</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function openMenu(){
+  document.getElementById("sidebar").style.left="0";
+}
+function closeMenu(){
+  document.getElementById("sidebar").style.left="-260px";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Krishi Sathi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI;}
+body{background:#f5f7f6}
+
+/* Navbar */
+.navbar{
+  height:60px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+.logo{font-weight:700;color:#1e7f3f;font-size:20px;}
+.nav-links a{
+  margin:0 10px;
+  text-decoration:none;
+  color:#1e7f3f;
+  font-weight:500;
+}
+.login-btn{
+  background:#1e7f3f;
+  color:white;
+  padding:7px 15px;
+  border-radius:20px;
+  text-decoration:none;
+}
+.profile{
+  display:none;
+  background:#1e7f3f;
+  color:white;
+  padding:7px 15px;
+  border-radius:20px;
+}
+
+/* Layout */
+.container{display:flex;}
+.sidebar{
+  width:220px;
+  background:#145a32;
+  min-height:calc(100vh - 60px);
+  padding-top:20px;
+}
+.sidebar a{
+  display:block;
+  color:white;
+  padding:12px 18px;
+  text-decoration:none;
+}
+.sidebar a:hover{background:#1e8449;}
+.main{flex:1}
+
+/* Hero */
+.hero{
+  height:400px;
+  background:url('https://images.unsplash.com/photo-1523741543316-beb7fc7023d8') center/cover no-repeat;
+  position:relative;
+  color:white;
+}
+.hero::after{
+  content:"";
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,.5);
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:80px 40px;
+}
+.hero h1{font-size:40px;}
+.hero h2{color:#7CFC98;margin:10px 0;}
+.hero p{max-width:600px;font-size:16px;}
+
+/* Login Box */
+.login-box{
+  max-width:350px;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  margin:30px;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.login-box input{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+.login-box button{
+  width:100%;
+  padding:10px;
+  background:#1e7f3f;
+  color:white;
+  border:none;
+  border-radius:6px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .sidebar{display:none;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">🌾 Kisan Saathi</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">People</a>
+    <a href="#">Contact</a>
+  </div>
+  <a href="#" class="login-btn" id="loginBtn" onclick="showLogin()">Login</a>
+  <div class="profile" id="profileBox">
+    <i class="fa fa-user"></i> <span id="userName">User</span>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="#"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fa fa-seedling"></i> Services</a>
+    <a href="#"><i class="fa fa-user"></i> Profile</a>
+    <a href="#"><i class="fa fa-money-bill"></i> Payments</a>
+    <a href="#"><i class="fa fa-cog"></i> Settings</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Strengthening FPOs</h1>
+        <h2>Strengthening Agriculture</h2>
+        <p>Through economics of aggregation by uniting farms and farmers through FPOs.</p>
+      </div>
+    </div>
+
+    <!-- Login Area -->
+    <div class="login-box" id="loginBox" style="display:none;">
+      <h3>Login</h3>
+      <input type="text" id="name" placeholder="Enter Name">
+      <input type="password" placeholder="Password">
+      <button onclick="doLogin()">Login Now</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function showLogin(){
+  document.getElementById("loginBox").style.display="block";
+}
+function doLogin(){
+  let n=document.getElementById("name").value;
+  if(n===""){alert("Name डाल भाई");return;}
+  document.getElementById("userName").innerText=n;
+  document.getElementById("loginBtn").style.display="none";
+  document.getElementById("profileBox").style.display="block";
+  document.getElementById("loginBox").style.display="none";
+}
+</script>
+
+</body>
+</html>

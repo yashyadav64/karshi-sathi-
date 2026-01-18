@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kisan Saathi – Premium Content</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+body{margin:0;font-family:Arial;background:#f4f6f5;}
+.header{
+  background:#2e7d32;color:white;padding:15px;text-align:center;
+}
+.lock-box{
+  max-width:400px;margin:50px auto;background:#fff;
+  padding:20px;border-radius:12px;text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.lock-box i{font-size:40px;color:#d32f2f;}
+.lock-box a{
+  display:inline-block;margin-top:15px;
+  background:#1976d2;color:white;
+  padding:10px 20px;border-radius:20px;
+  text-decoration:none;font-weight:bold;
+}
+.content{
+  max-width:900px;margin:20px auto;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;display:none;
+}
+.card{
+  background:#fff;padding:15px;border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+.card h3{color:#2e7d32;margin-bottom:8px;}
+.card p{font-size:14px;color:#444;}
+.badge{
+  background:#2e7d32;color:white;
+  display:inline-block;padding:4px 10px;
+  border-radius:12px;font-size:12px;margin-bottom:8px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2>🌾 Kisan Saathi – Subscriber Content</h2>
+  <p>Sirf active members ke liye special jaankari</p>
+</div>
+
+<!-- Locked Message -->
+<div class="lock-box" id="lockBox">
+  <i class="fas fa-lock"></i>
+  <h3>Content Locked</h3>
+  <p>Is page ko dekhne ke liye aapka subscription active hona chahiye.</p>
+  <a href="subscription.html">Subscribe Now</a>
+</div>
+
+<!-- Subscriber Content -->
+<div class="content" id="subContent">
+
+  <div class="card">
+    <span class="badge">New</span>
+    <h3>🌦 Aaj Ka Mausam</h3>
+    <p>Barwani me aaj halki baarish ke chances hain. Kheti me pani ka dhyan rakhe.</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">Premium</span>
+    <h3>🌱 Gehu ki Fasal Tips</h3>
+    <p>Behtar upaj ke liye 20 din me ek baar sinchai aur balanced fertilizer use kare.</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">Guide</span>
+    <h3>🧪 Fertilizer Schedule</h3>
+    <p>Urea: 45 din baad, DAP: beejai ke time, Potash: phool aane par.</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">Market</span>
+    <h3>💰 Aaj Ke Bhav</h3>
+    <p>Gehu – ₹2200/Qt, Makka – ₹1850/Qt, Soyabean – ₹4300/Qt.</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">New App</span>
+    <h3>📱 Nayi Suvidha</h3>
+    <p>Ab aap apna crop plan online bana sakte ho aur expert se baat kar sakte ho.</p>
+  </div>
+
+
+  <div class="card">
+    <span class="badge">Govt</span>
+    <h3>🏛 Sarkari Yojana</h3>
+    <p>PM Kisan Yojana ke liye naya update aaya hai – form 31 March tak bhare.</p>
+  </div>
+
+</div>
+
+<script>
+// Check plan from localStorage
+let data = localStorage.getItem("user_plan");
+
+if(data){
+  let plan = JSON.parse(data);
+  if(plan.status === "Active"){
+    document.getElementById("lockBox").style.display="none";
+    document.getElementById("subContent").style.display="grid";
+  }
+}
+</script>
+</body>
+</html>

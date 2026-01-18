@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisan Saathi</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f6f5;padding-top:70px;}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+  z-index:1000;
+}
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:22px;
+  font-weight:700;
+  color:#2e7d32;
+}
+.logo img{height:40px;}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+.nav-links a{
+  text-decoration:none;
+  color:#2e7d32;
+  font-weight:500;
+}
+.nav-links a:hover{color:#1b5e20;}
+
+/* PROFILE DESKTOP */
+.profile{
+  position:relative;
+  cursor:pointer;
+}
+.profile-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border-radius:25px;
+  background:#e8f5e9;
+}
+.profile-box img{
+  height:34px;
+  width:34px;
+  border-radius:50%;
+}
+.profile-box span{
+  font-size:14px;
+  font-weight:600;
+  color:#2e7d32;
+}
+.profile-menu{
+  position:absolute;
+  top:55px;
+  right:0;
+  width:220px;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 12px 25px rgba(0,0,0,.15);
+  display:none;
+}
+.profile-menu a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 15px;
+  text-decoration:none;
+  color:#333;
+  font-size:14px;
+}
+.profile-menu a i{color:#2e7d32;}
+.profile-menu a:hover{background:#e8f5e9;}
+
+/* SERVICES DROPDOWN */
+.services-drop{position:relative;}
+.services-menu{
+  position:absolute;
+  top:35px;
+  left:0;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  display:none;
+  min-width:220px;
+}
+.services-menu a{
+  padding:10px 15px;
+  display:block;
+  color:#333;
+  text-decoration:none;
+}
+.services-menu a:hover{background:#e8f5e9;}
+
+/* MENU BUTTON */
+.menu-btn{
+  font-size:24px;
+  color:#2e7d32;
+  display:none;
+  cursor:pointer;
+}
+
+/* SIDEBAR (MOBILE) */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100vh;
+  background:#2e7d32;
+  padding:20px;
+  transition:.3s;
+  z-index:2000;
+
+  /* 🔥 SCROLL ENABLE */
+  overflow-y:auto;
+}
+
+/* scrollbar style */
+.sidebar::-webkit-scrollbar{width:6px;}
+.sidebar::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.4);
+  border-radius:10px;
+}
+
+.sidebar .close-btn{
+  font-size:26px;
+  color:#fff;
+  text-align:right;
+  cursor:pointer;
+}
+
+/* SIDEBAR PROFILE */
+.sidebar-profile{
+  text-align:center;
+  margin:15px 0 25px;
+  border-bottom:1px solid rgba(255,255,255,.3);
+  padding-bottom:15px;
+}
+.sidebar-profile img{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border:3px solid #fff;
+  margin-bottom:8px;
+}
+.sidebar-profile h4{
+  color:#fff;
+  font-weight:600;
+}
+
+/* SIDEBAR LINKS */
+.sidebar a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 10px;
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  border-radius:6px;
+}
+.sidebar a:hover{
+  background:rgba(255,255,255,.15);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.profile{display:none;}
+  .menu-btn{display:block;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="closeMenu()">&times;</div>
+
+  <div class="sidebar-profile">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg">
+    <h4>Mukesh Yadav</h4>
+  </div>
+
+  <a href="#"><i class="fas fa-home"></i> Home</a>
+  <a href="#"><i class="fas fa-info-circle"></i> About</a>
+  <a href="#"><i class="fas fa-seedling"></i> Seeds & Fertilizer</a>
+  <a href="#"><i class="fas fa-tractor"></i> Machinery</a>
+  <a href="#"><i class="fas fa-cloud-sun"></i> Weather</a>
+  <a href="#"><i class="fas fa-chart-line"></i> Market Price</a>
+
+  <!-- future options add here -->
+  <a href="KSC001profile.html"><i class="fas fa-user"></i> My Profile</a>
+  <a href="Subscription.html"><i class="fas fa-crown"></i> Subscription</a>
+  <a href="KSC001panls.html"><i class="fas fa-id-card"></i> My Plan</a>
+    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+</div>
+
+<!-- HEADER -->
+<header>
+<div class="navbar">
+
+  <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909767.png">
+    Kisan Saathi
+  </div>
+
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+
+    <div class="services-drop">
+      <a href="#" onclick="toggleServices(event)">Services <i class="fas fa-chevron-down"></i></a>
+      <div class="services-menu" id="servicesMenu">
+        <a href="#"><i class="fas fa-seedling"></i> Seeds & Fertilizer</a>
+        <a href="#"><i class="fas fa-tractor"></i> Machinery Rent</a>
+        <a href="#"><i class="fas fa-cloud-sun"></i> Weather Update</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Market Price</a>
+        <a href="#"><i class="fas fa-phone"></i> Farmer Support</a>
+        <a href="costumer list.html"><i class="fas fa-phone"></i> Farmer list</a>
+      </div>
+    </div>
+
+    <a href="#">People</a>
+    <a href="#">Articles</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- DESKTOP PROFILE -->
+  <div class="profile" onclick="toggleProfile()">
+    <div class="profile-box">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg">
+      <span>Admin Yash</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="profile-menu" id="profileMenu">
+      <a href="em profile450807.html"><i class="fas fa-user"></i> Profile</a>
+      <a href="#"><i class="fas fa-table"></i> Dashboard</a>
+      <a href="#"><i class="fas fa-cog"></i> Settings</a>
+      <a href="Subscription.html"><i class="fas fa-crown"></i> Subscription</a>
+      <a href="costumer palns list.html"><i class="fas fa-id-card"></i> costumer Plan</a>
+      <a href="index.html" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      
+    </div>
+  </div>
+
+  <div class="menu-btn" onclick="openMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+</div>
+</header>
+
+<script>
+function toggleProfile(){
+  const m=document.getElementById("profileMenu");
+  m.style.display = m.style.display==="block" ? "none":"block";
+}
+function toggleServices(e){
+  e.preventDefault();
+  const s=document.getElementById("servicesMenu");
+  s.style.display = s.style.display==="block" ? "none":"block";
+}
+function openMenu(){
+  document.getElementById("sidebar").style.left="0";
+  document.body.style.overflow="hidden"; // lock bg
+}
+function closeMenu(){
+  document.getElementById("sidebar").style.left="-260px";
+  document.body.style.overflow="auto"; // unlock
+}
+</script>
+
+</body>
+</html>

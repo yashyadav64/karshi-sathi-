@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Krishi Sathi UI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI;}
+body{background:#f4f7f5}
+
+/* Navbar */
+.navbar{
+  height:60px;
+  background:linear-gradient(90deg,#1b8a5a,#3ccf91);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+}
+.navbar .logo{font-size:20px;font-weight:700;}
+.navbar .right{display:flex;align-items:center;gap:15px;}
+.login-btn{
+  background:#ffe066;
+  color:#1b8a5a;
+  padding:8px 16px;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+.profile{
+  background:white;
+  color:#1b8a5a;
+  padding:7px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  display:none;
+}
+
+/* Layout */
+.container{display:flex;}
+.sidebar{
+  width:220px;
+  background:#145a32;
+  min-height:calc(100vh - 60px);
+  padding-top:15px;
+}
+.sidebar a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  padding:12px 18px;
+  font-size:15px;
+}
+.sidebar a i{margin-right:8px;}
+.sidebar a:hover{background:#1e8449;}
+
+.main{
+  flex:1;
+  padding:20px;
+}
+
+/* Login Box */
+.login-box{
+  max-width:350px;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+.login-box h2{text-align:center;margin-bottom:15px;color:#1b8a5a;}
+.login-box input{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+.login-box button{
+  width:100%;
+  padding:10px;
+  background:#1b8a5a;
+  color:white;
+  border:none;
+  border-radius:6px;
+  font-weight:600;
+  cursor:pointer;
+}
+.login-box button:hover{background:#157347;}
+
+/* Responsive */
+@media(max-width:768px){
+  .sidebar{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">🌾 Krishi Sathi</div>
+  <div class="right">
+    <a href="#" class="login-btn" id="loginBtn" onclick="showLogin()">Login</a>
+    <div class="profile" id="profileBox">
+      <i class="fas fa-user"></i> <span id="userName">Yash</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-seedling"></i> Services</a>
+    <a href="#"><i class="fas fa-tractor"></i> Farmers</a>
+    <a href="#"><i class="fas fa-chart-line"></i> Reports</a>
+    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="login-box" id="loginBox">
+      <h2>Login</h2>
+      <input type="text" id="name" placeholder="Enter Name">
+      <input type="password" placeholder="Password">
+      <button onclick="doLogin()">Login Now</button>
+    </div>
+
+    <div id="welcome" style="display:none;">
+      <h2 style="color:#1b8a5a;">Welcome to Krishi Sathi 🌾</h2>
+      <p>अब तू Login हो चुका है, Profile Navbar में दिखेगा।</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function showLogin(){
+  document.getElementById("loginBox").style.display="block";
+}
+
+function doLogin(){
+  let n=document.getElementById("name").value;
+  if(n===""){alert("Name डाल भाई"); return;}
+  document.getElementById("userName").innerText=n;
+  document.getElementById("loginBtn").style.display="none";
+  document.getElementById("profileBox").style.display="block";
+  document.getElementById("loginBox").style.display="none";
+  document.getElementById("welcome").style.display="block";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Ads Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:Arial;background:#f2f4f8;padding:15px;}
+    h2{text-align:center;}
+    .box{
+      background:#fff;padding:15px;border-radius:10px;
+      max-width:400px;margin:10px auto;
+    }
+    input,button{
+      width:100%;padding:10px;margin:6px 0;border-radius:6px;border:1px solid #ccc;
+    }
+    button{background:#388e3c;color:#fff;font-weight:bold;border:none;}
+    .ad{
+      max-width:400px;margin:20px auto;text-align:center;
+      background:#fff;padding:10px;border-radius:10px;
+    }
+    .ad img{width:100%;border-radius:8px;}
+  </style>
+</head>
+<body>
+
+<h2>Website Ads Control Panel</h2>
+
+<div class="box">
+  <input id="img" placeholder="Ad Image URL">
+  <input id="link" placeholder="Ad Click Link">
+  <button onclick="saveAd()">Save / Update Ad</button>
+</div>
+
+<div class="ad" id="adBox" style="display:none;">
+  <a id="adLink" href="#" target="_blank">
+    <img id="adImg" src="">
+  </a>
+</div>
+
+<script>
+function saveAd(){
+  let ad = {
+    img: img.value,
+    link: link.value
+  };
+  localStorage.setItem("site_ad", JSON.stringify(ad));
+  showAd();
+  alert("Ad Updated!");
+}
+
+function showAd(){
+  let data = localStorage.getItem("site_ad");
+  if(!data) return;
+  let ad = JSON.parse(data);
+  adImg.src = ad.img;
+  adLink.href = ad.link;
+  adBox.style.display="block";
+}
+
+showAd();
+</script>
+
+</body>
+</html>

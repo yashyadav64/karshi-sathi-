@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.register-box{
+  background:#fff;
+  width:100%;
+  max-width:380px;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+.register-box h2{
+  text-align:center;
+  margin-bottom:15px;
+}
+input, textarea, button{
+  width:100%;
+  padding:10px;
+  margin-bottom:12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+button{
+  background:#667eea;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
+}
+button:disabled{
+  background:#999;
+}
+#msg{
+  text-align:center;
+  font-size:14px;
+  margin-top:10px;
+}
+.success{ color:green; }
+.error{ color:red; }
+</style>
+</head>
+
+<body>
+
+<div class="register-box">
+<h2>Create Account</h2>
+
+<form id="web3Form">
+
+  <input type="hidden" name="access_key" value="b61f0a0a-5d82-4988-964a-2dbeca2157cf">
+
+  <input type="text" name="name" placeholder="Full Name" required>
+
+  <input type="password" name="password" placeholder="Password" required>
+
+  <button type="submit" id="submitBtn">Register Now</button>
+</form>
+
+<div id="msg"></div>
+</div>
+
+<script>
+const form = document.getElementById("web3Form");
+const submitBtn = document.getElementById("submitBtn");
+const msg = document.getElementById("msg");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  submitBtn.textContent = "Sending...";
+  submitBtn.disabled = true;
+  msg.textContent = "";
+
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      msg.className = "success";
+      msg.innerHTML = "✅ Registered Successfully<br>Your account will be active within <b>2 hours</b>";
+      form.reset();
+    } else {
+      msg.className = "error";
+      msg.textContent = "❌ " + data.message;
+    }
+
+  } catch (error) {
+    msg.className = "error";
+    msg.textContent = "⚠️ Network error. Try again.";
+  }
+
+  submitBtn.textContent = "Register Now";
+  submitBtn.disabled = false;
+});
+</script>
+
+</body>
+</html>

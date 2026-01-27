@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Premium Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins;
+}
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#4b1fa6,#7b3fe4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CARD */
+.card{
+    width:380px;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-radius:24px;
+    padding:35px 30px;
+    box-shadow:0 40px 80px rgba(0,0,0,.4);
+}
+
+/* SWITCH */
+.switch{
+    display:flex;
+    gap:12px;
+    margin-bottom:25px;
+}
+.switch button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:500;
+    transition:.3s;
+}
+.active{
+    background:linear-gradient(135deg,#6a1b9a,#8e24aa);
+    color:#fff;
+    box-shadow:0 10px 25px rgba(106,27,154,.5);
+}
+.inactive{
+    background:#eee;
+}
+
+/* INPUT */
+.input{
+    position:relative;
+    margin-bottom:18px;
+}
+.input i{
+    position:absolute;
+    top:50%;
+    left:18px;
+    transform:translateY(-50%);
+    color:#8e24aa;
+}
+.input input{
+    width:100%;
+    padding:14px 18px 14px 48px;
+    border-radius:35px;
+    border:1px solid #ddd;
+    font-size:14px;
+    outline:none;
+    transition:.3s;
+}
+.input input:focus{
+    border-color:#8e24aa;
+    box-shadow:0 0 0 3px rgba(142,36,170,.15);
+}
+
+/* BUTTON */
+.login-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:35px;
+    background:linear-gradient(135deg,#6a1b9a,#8e24aa);
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:.3s;
+}
+.login-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(106,27,154,.6);
+}
+
+/* ERROR */
+#error{
+    margin-top:12px;
+    color:#d32f2f;
+    text-align:center;
+    font-size:13px;
+}
+
+/* SOCIAL */
+.social{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:20px;
+}
+.social i{
+    font-size:18px;
+    color:#6a1b9a;
+    cursor:pointer;
+    transition:.3s;
+}
+.social i:hover{
+    transform:scale(1.2);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="switch">
+        <button id="uBtn" class="active" onclick="modeChange('user')">
+            <i class="fa fa-user"></i> Customer
+        </button>
+        <button id="aBtn" class="inactive" onclick="modeChange('admin')">
+            <i class="fa fa-shield-halved"></i> Admin
+        </button>
+    </div>
+
+    <div class="input">
+        <i class="fa fa-user"></i>
+        <input id="uid" placeholder="Username">
+    </div>
+
+    <div class="input">
+        <i class="fa fa-lock"></i>
+        <input type="password" id="pass" placeholder="Password">
+    </div>
+
+    <button class="login-btn" onclick="login()">LOGIN</button>
+
+    <div id="error"></div>
+
+    <div class="social">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
+    </div>
+
+</div>
+
+<script>
+let mode="user";
+
+/* 25 CUSTOMERS */
+const customers={
+ mukesh:{ password:"12345", page:"KSC001.html" },
+
+ user02:{password:"10002",page:"user02.html"},
+ user03:{password:"10003",page:"user03.html"},
+ user04:{password:"10004",page:"user04.html"},
+ user05:{password:"10005",page:"user05.html"},
+ user06:{password:"10006",page:"user06.html"},
+ user07:{password:"10007",page:"user07.html"},
+ user08:{password:"10008",page:"user08.html"},
+ user09:{password:"10009",page:"user09.html"},
+ user10:{password:"10010",page:"user10.html"},
+ user11:{password:"10011",page:"user11.html"},
+ user12:{password:"10012",page:"user12.html"},
+ user13:{password:"10013",page:"user13.html"},
+ user14:{password:"10014",page:"user14.html"},
+ user15:{password:"10015",page:"user15.html"},
+ user16:{password:"10016",page:"user16.html"},
+ user17:{password:"10017",page:"user17.html"},
+ user18:{password:"10018",page:"user18.html"},
+ user19:{password:"10019",page:"user19.html"},
+ user20:{password:"10020",page:"user20.html"},
+ mukesh:{password:"12345",page:"KSC001.html"},
+ user21:{password:"10021",page:"user21.html"},
+ user22:{password:"10022",page:"user22.html"},
+ user23:{password:"10023",page:"user23.html"},
+ user24:{password:"10024",page:"user24.html"}
+};
+
+/* ADMINS */
+const admins={
+ admin1:{password:"11111",page:"r2 login.html"},
+ yash:{password:"563412",page:"indexadmin.html"}
+};
+
+function modeChange(m){
+    mode=m;
+    uBtn.className=m==="user"?"active":"inactive";
+    aBtn.className=m==="admin"?"active":"inactive";
+    error.innerText="";
+}
+
+function login(){
+    const u=uid.value.trim();
+    const p=pass.value.trim();
+    const data = mode==="user"?customers:admins;
+
+    if(data[u] && data[u].password===p){
+        location.href=data[u].page;
+    }else{
+        error.innerText="❌ Invalid "+(mode==="admin"?"Admin":"Customer")+" Login";
+    }
+}
+</script>
+
+</body>
+</html>

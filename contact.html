@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  min-height:100vh;
+  background:#b7d7e8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.container{
+  background:#fff;
+  max-width:950px;
+  width:100%;
+  border-radius:18px;
+  display:flex;
+  overflow:hidden;
+  box-shadow:0 25px 60px rgba(0,0,0,.2);
+}
+.left{
+  flex:1;
+  padding:40px;
+}
+.left h1{
+  font-size:36px;
+  color:#1f3c5b;
+  margin-bottom:20px;
+}
+.field{
+  background:#eef7fb;
+  border-radius:30px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  margin-bottom:15px;
+}
+.field i{
+  color:#7da6b6;
+  margin-right:12px;
+}
+.field input,
+.field textarea{
+  border:none;
+  background:transparent;
+  width:100%;
+  outline:none;
+  font-size:14px;
+}
+textarea{
+  resize:none;
+  height:90px;
+}
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:#00b4d8;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+button:hover{
+  background:#0096c7;
+}
+.right{
+  flex:1;
+  background:#f1f9fd;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.right img{
+  width:100%;
+  max-width:380px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .container{
+    flex-direction:column;
+  }
+  .right{
+    display:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT FORM -->
+  <div class="left">
+    <h1>Contact us</h1>
+
+    <!-- ✅ WEB3FORMS WORKING FORM -->
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+      <input type="hidden" name="access_key" value="b61f0a0a-5d82-4988-964a-2dbeca2157cf">
+      <input type="hidden" name="subject" value="New Contact Message">
+      <input type="hidden" name="from_name" value="Website Contact">
+
+      <div class="field">
+        <i class="fa fa-user"></i>
+        <input type="text" name="name" placeholder="Name" required>
+      </div>
+
+      <div class="field">
+        <i class="fa fa-envelope"></i>
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+
+      <div class="field">
+        <i class="fa fa-comment"></i>
+        <textarea name="message" placeholder="Message" required></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- RIGHT IMAGE -->
+  <div class="right">
+    <!-- 👇 yahan apni image ka link daal sakta hai -->
+    <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2025/03/what-is-customer-support-1680x1120-1.jpg?w=1024" alt="Contact Illustration">
+  </div>
+
+</div>
+
+</body>
+</html>

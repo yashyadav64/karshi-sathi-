@@ -56,7 +56,6 @@ header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 4px 15px rgb
   <a href="#"><i class="fas fa-chart-line"></i> Market Price</a>
   <a href="new login js.html"><i class="fas fa-sign-in-alt"></i> Login</a>
   <a href="jobs home.html"><i class="fas fa-briefcase"></i> Krishi Sathi Jobs</a>
-  
 
 </div>
 
@@ -97,6 +96,167 @@ header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 4px 15px rgb
   </div>
 </div>
 </header>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<section class="launch-section">
+
+  <div class="launch-box">
+
+    <span class="launch-badge">
+      <i class="fa-solid fa-rocket"></i>
+      Launching Soon
+    </span>
+
+    <h2>
+      किसानों के लिए सरकारी योजनाओं की<br>
+      <span>डिजिटल सेवा – Krishi Sathi</span>
+    </h2>
+
+    <p class="launch-desc">
+      <strong>Krishi Sathi</strong> एक डिजिटल प्लेटफ़ॉर्म है
+      जो किसानों को केंद्र एवं राज्य सरकार की
+      योजनाओं की सही जानकारी और सहायता प्रदान करेगा।
+      <br><br>
+      अभी यह सेवा <b>शुरुआती चरण (Launching Phase)</b> में है,
+      इसलिए किसानों के लिए यह सुविधा
+      <span class="free-text">पूरी तरह निःशुल्क (FREE)</span> उपलब्ध कराई जा रही है।
+    </p>
+
+    <div class="launch-features">
+      <div class="lf-box">
+        <i class="fa-solid fa-seedling"></i>
+        <span>PM-Kisan सहायता</span>
+      </div>
+      <div class="lf-box">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>फसल बीमा सेवा</span>
+      </div>
+      <div class="lf-box">
+        <i class="fa-solid fa-tractor"></i>
+        <span>सब्सिडी जानकारी</span>
+      </div>
+      <div class="lf-box">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>ऑनलाइन आवेदन</span>
+      </div>
+    </div>
+
+    <div class="coming-note">
+      <i class="fa-solid fa-clock"></i>
+      <b>Coming Soon:</b>  
+      सभी सरकारी योजनाओं के लिए ऑनलाइन आवेदन,
+      WhatsApp अलर्ट और व्यक्तिगत सहायता सेवा।
+    </div>
+
+    <div class="launch-info">
+      <i class="fa-solid fa-circle-info"></i>
+      अभी केवल जानकारी एवं सहायता दी जा रही है।  
+      पूर्ण सेवाएँ जल्द ही शुरू की जाएँगी।
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ===== LAUNCH SECTION ===== */
+.launch-section{
+  padding:80px 20px;
+  background:linear-gradient(135deg,#eef7ff,#f4fff5);
+  display:flex;
+  justify-content:center;
+}
+
+.launch-box{
+  background:#ffffff;
+  max-width:900px;
+  width:100%;
+  padding:50px 40px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+.launch-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 22px;
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+  color:#fff;
+  border-radius:40px;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.launch-box h2{
+  font-size:34px;
+  color:#1b5e20;
+  margin-bottom:20px;
+}
+
+.launch-box h2 span{
+  color:#2e7d32;
+}
+
+.launch-desc{
+  font-size:16px;
+  color:#444;
+  line-height:1.8;
+  margin-bottom:35px;
+}
+
+.free-text{
+  color:#d32f2f;
+  font-weight:700;
+}
+
+.launch-features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+  margin-bottom:35px;
+}
+
+.lf-box{
+  background:#e8f5e9;
+  padding:18px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-weight:600;
+}
+
+.lf-box i{
+  color:#1b5e20;
+}
+
+.coming-note{
+  background:#fff3e0;
+  padding:18px;
+  border-radius:16px;
+  font-size:15px;
+  color:#e65100;
+  margin-bottom:20px;
+}
+
+.launch-info{
+  font-size:14px;
+  color:#555;
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .launch-box{
+    padding:40px 25px;
+  }
+  .launch-box h2{
+    font-size:26px;
+  }
+}
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -625,4 +785,3 @@ function closeMenu(){document.getElementById("sidebar").style.left="-260px";}
 
 </body>
 </html>
-

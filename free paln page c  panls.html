@@ -194,6 +194,160 @@ header{
   .nav-links,.profile{display:none;}
   .menu-btn{display:block;}
 }
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f3faf3;
+}
+.container{
+    max-width:1200px;
+    margin:30px auto;
+    padding:15px;
+}
+.section-title{
+    margin:30px 0 15px;
+    font-size:22px;
+    color:#2e7d32;
+    font-weight:bold;
+}
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+}
+.card{
+    background:#fff;
+    padding:25px 20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    cursor:pointer;
+    text-decoration:none;
+    color:inherit;
+}
+.card:hover{
+    transform:translateY(-6px);
+}
+.icon{
+    width:70px;
+    height:70px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    color:#fff;
+}
+.green{background:#4caf50;}
+.blue{background:#2196f3;}
+.orange{background:#ff9800;}
+.teal{background:#009688;}
+.red{background:#e53935;}
+.purple{background:#7b1fa2;}
+
+.card h3{
+    margin:10px 0;
+    color:#333;
+}
+.card p{
+    font-size:14px;
+    color:#555;
+    line-height:1.6;
+}
+.badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:20px;
+    color:#fff;
+}
+.free{background:#4caf50;}
+.pro{background:#ff9800;}
+
+.footer{
+    text-align:center;
+    margin-top:35px;
+    font-size:13px;
+    color:#777;
+}
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f3faf3;
+}
+.container{
+    max-width:1200px;
+    margin:30px auto;
+    padding:15px;
+}
+.section-title{
+    font-size:22px;
+    color:#2e7d32;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap:25px;
+}
+.card{
+    background:#fff;
+    padding:25px 20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+    text-decoration:none;
+    color:inherit;
+}
+.card:hover{
+    transform:translateY(-6px);
+}
+.icon{
+    width:75px;
+    height:75px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    color:#fff;
+}
+.green{background:#4caf50;}
+.blue{background:#2196f3;}
+.orange{background:#ff9800;}
+.card h3{
+    margin:10px 0;
+    color:#333;
+}
+.card p{
+    font-size:14px;
+    color:#555;
+    line-height:1.6;
+}
+.badge{
+    display:inline-block;
+    margin-top:12px;
+    padding:4px 12px;
+    font-size:12px;
+    border-radius:20px;
+    color:#fff;
+}
+.free{background:#4caf50;}
+.pro{background:#ff9800;}
+
+.footer{
+    text-align:center;
+    margin-top:35px;
+    font-size:13px;
+    color:#777;
+}
 </style>
 </head>
 
@@ -276,6 +430,142 @@ header{
 
 </div>
 </header>
+<div class="container">
+
+    <!-- 🆓 FREE SERVICES -->
+    <div class="section-title">🆓 Free Services (Click to View)</div>
+    <div class="cards">
+
+        <a href="https://pmkisan.gov.in/" class="card">
+            <div class="icon green"><i class="fa-solid fa-seedling"></i></div>
+            <h3>PM Kisan Status</h3>
+            <p>PM Kisan Yojana ka status aasani se check kare.</p>
+            <span class="badge free">FREE</span>
+        </a>
+
+        <a href="mandi rate .html" class="card">
+            <div class="icon teal"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3>Mandi Bhav</h3>
+            <p>Apni fasal ka mandi rate dekhe.</p>
+            <span class="badge free">FREE</span>
+        </a>
+
+        <a href="krishi-tips.html" class="card">
+            <div class="icon blue"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Krishi Tips</h3>
+            <p>Farming ke liye upyogi salah aur tips.</p>
+            <span class="badge free">FREE</span>
+        </a>
+
+    </div>
+
+    <!-- 🛒 PRODUCT ORDERS -->
+    <div class="section-title">🛒 Product Orders (Buy Online)</div>
+    <div class="cards">
+
+        <a href="prodcut home.html" class="card">
+            <div class="icon green"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Seeds</h3>
+            <p>Achhi quality ke beej order kare.</p>
+        </a>
+
+        <a href="fertilizer.html" class="card">
+            <div class="icon blue"><i class="fa-solid fa-flask"></i></div>
+            <h3>Fertilizers</h3>
+            <p>Fasal ke liye upyogi khad kharide.</p>
+        </a>
+
+        <a href="tools.html" class="card">
+            <div class="icon orange"><i class="fa-solid fa-tractor"></i></div>
+            <h3>Tools</h3>
+            <p>Krishi auzar aur machines order kare.</p>
+        </a>
+
+    </div>
+
+    <!-- 🌱 FULL SERVICES STATUS (PRO) -->
+    <div class="section-title">🌱 Full Services Status (PRO)</div>
+    <div class="cards">
+
+        <a href="#" class="card">
+            <div class="icon blue"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Crop Insurance</h3>
+            <p>Fasal bima ka status aur claim details.</p>
+            <span class="badge pro">PRO</span>
+        </a>
+
+        <a href="#" class="card">
+            <div class="icon green"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h3>Loan Status</h3>
+            <p>Kisan loan application status.</p>
+            <span class="badge pro">PRO</span>
+        </a>
+
+        <a href="#" class="card">
+            <div class="icon purple"><i class="fa-solid fa-building-columns"></i></div>
+            <h3>Subsidy & Govt Yojana</h3>
+            <p>Sabhi sarkari yojna ka full status.</p>
+            <span class="badge pro">PRO</span>
+        </a>
+
+    </div>
+
+  
+
+</div>
+<div class="container">
+
+    <div class="section-title">⚡ Extra Perks for Farmers</div>
+
+    <div class="cards">
+
+        <!-- Seasonal Reminders -->
+        <a href="seasonal-reminders.html" class="card">
+            <div class="icon green">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <h3>Seasonal Reminders</h3>
+            <p>
+                Beej bone, sinchai, khaad aur fasal suraksha ke
+                samay par reminders paaye.
+            </p>
+            <span class="badge free">FREE</span>
+        </a>
+
+        <!-- Agro Advisory -->
+        <a href="no palns.html" class="card">
+            <div class="icon blue">
+                <i class="fa-solid fa-user-doctor"></i>
+            </div>
+            <h3>Agro Advisory</h3>
+            <p>
+                Fasal, mitti aur mausam ke hisaab se
+                expert salah aur guidance.
+            </p>
+            <span class="badge pro">PRO</span>
+        </a>
+
+        <!-- Weather Based Alert (Bonus) -->
+        <a href="no palns.html" class="card">
+            <div class="icon orange">
+                <i class="fa-solid fa-cloud-sun-rain"></i>
+            </div>
+            <h3>Weather Alerts</h3>
+            <p>
+                Barish, thand, garmi aur aandhi ke
+                pehle alert paaye.
+            </p>
+            <span class="badge pro">PRO</span>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Krishi Sathi | Smart Farmer Support
+    </div>
+
+</div>
+
 
 <script>
 function toggleProfile(){

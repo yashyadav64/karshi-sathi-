@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KisanShop Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background:#f4f6f5;
+}
+
+/* ================= HEADER ================= */
+header{
+    background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.top-bar{
+    max-width:1300px;
+    margin:auto;
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+.logo{
+    font-size:24px;
+    font-weight:600;
+    color:#1a7f37;
+    white-space:nowrap;
+}
+.logo span{color:#ffb703;}
+
+.search-box{
+    flex:1 1 100%;
+    display:flex;
+    align-items:center;
+    background:#f1f1f1;
+    border-radius:8px;
+    padding:8px 12px;
+}
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+}
+.search-box i{color:#1a7f37;}
+
+.top-links{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+.top-links a{
+    text-decoration:none;
+    font-size:13px;
+    color:#333;
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+.top-links i{color:#1a7f37;}
+
+.navbar{
+    border-top:1px solid #eee;
+}
+.navbar ul{
+    max-width:1300px;
+    margin:auto;
+    padding:10px 14px;
+    list-style:none;
+    display:flex;
+    gap:22px;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+.navbar li{
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+}
+.navbar li:hover{color:#1a7f37;}
+
+/* DESKTOP */
+@media(min-width:769px){
+    .top-bar{flex-wrap:nowrap;}
+    .search-box{flex:1;max-width:600px;}
+    .top-links{width:auto;}
+}
+
+/* ================= LOGIN CARD ================= */
+.login-wrap{
+    min-height:calc(100vh - 140px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+.card{
+    background:#fff;
+    width:360px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+h2{text-align:center;}
+.sub{text-align:center;font-size:14px;color:#666;margin-bottom:20px;}
+.input-box{display:flex;margin-top:10px;}
+select,input{
+    padding:10px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+select{border-radius:6px 0 0 6px;}
+input{flex:1;border-left:none;border-radius:0 6px 6px 0;}
+button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    background:#0a7a0a;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="top-bar">
+        <div class="logo">Karshi<span> sathi Shop</span></div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search for products, brands and more...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="top-links">
+            <a href="#"><i class="fa-solid fa-store"></i> Seller</a>
+            <a href="#"><i class="fa-solid fa-mobile-screen"></i> App</a>
+            <a href="#"><i class="fa-solid fa-user"></i> Login</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li>Seeds</li>
+            <li>Crop Protection</li>
+            <li>Crop Nutrition</li>
+            <li>Farming Tools</li>
+            <li>Plants</li>
+            <li>Pots & Planters</li>
+            <li>Animal Feed</li>
+        </ul>
+    </nav>
+</header>
+
+<!-- LOGIN -->
+<div class="login-wrap">
+<div class="card">
+
+<div id="step1">
+<h2>Seller Login</h2>
+<div class="sub">Mobile OTP Login</div>
+
+<div class="input-box">
+<select><option>+91</option></select>
+<input type="tel" id="mobile" placeholder="Enter mobile number">
+</div>
+
+<button onclick="sendOTP()">Send OTP</button>
+</div>
+
+<div id="step2" class="hidden">
+<h2>Verify OTP</h2>
+<input type="number" id="otp" placeholder="Enter OTP"
+style="width:100%;padding:10px;border-radius:6px;border:1px solid #ccc">
+<button onclick="verifyOTP()">Verify</button>
+</div>
+
+</div>
+</div>
+
+<script>
+const users = [
+  { mobile:"7987025943", otp:"5634", page:"seller-yash.html" },
+  { mobile:"9876543210", otp:"5634", page:"seller-ramesh.html" },
+  { mobile:"9123456789", otp:"5634", page:"seller-suresh.html" }
+];
+
+let currentUser = null;
+
+function sendOTP(){
+    const mobile = document.getElementById("mobile").value.trim();
+    currentUser = users.find(u => u.mobile === mobile);
+    if(!currentUser) return;
+
+    localStorage.setItem("loginUser", mobile);
+    document.getElementById("step1").classList.add("hidden");
+    document.getElementById("step2").classList.remove("hidden");
+}
+
+function verifyOTP(){
+    const otp = document.getElementById("otp").value.trim();
+    if(!currentUser || otp !== currentUser.otp) return;
+    window.location.href = currentUser.page;
+}
+</script>
+
+</body>
+</html>

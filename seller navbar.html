@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KisanShop Header</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background:#f4f6f5;
+}
+
+/* HEADER */
+header{
+    background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* TOP BAR */
+.top-bar{
+    max-width:1300px;
+    margin:auto;
+    padding:10px 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap; /* IMPORTANT */
+}
+
+/* LOGO */
+.logo{
+    font-size:24px;
+    font-weight:600;
+    color:#1a7f37;
+    white-space:nowrap;
+}
+.logo span{ color:#ffb703; }
+
+/* SEARCH */
+.search-box{
+    flex:1 1 100%;
+    max-width:100%;
+    display:flex;
+    align-items:center;
+    background:#f1f1f1;
+    border-radius:8px;
+    padding:8px 12px;
+}
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:14px;
+}
+.search-box i{
+    color:#1a7f37;
+}
+
+/* RIGHT LINKS */
+.top-links{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:6px;
+}
+.top-links a{
+    text-decoration:none;
+    color:#333;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+.top-links i{
+    color:#1a7f37;
+    font-size:16px;
+}
+
+/* NAVBAR */
+.navbar{
+    border-top:1px solid #eee;
+}
+.navbar ul{
+    max-width:1300px;
+    margin:auto;
+    padding:10px 14px;
+    list-style:none;
+    display:flex;
+    gap:22px;
+    overflow-x:auto;        /* MOBILE SCROLL */
+    white-space:nowrap;
+}
+.navbar li{
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+}
+.navbar li:hover{
+    color:#1a7f37;
+}
+
+/* DESKTOP FIX */
+@media(min-width:769px){
+    .top-bar{
+        flex-wrap:nowrap;
+    }
+    .search-box{
+        flex:1;
+        max-width:600px;
+    }
+    .top-links{
+        width:auto;
+        margin-top:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="top-bar">
+
+        <div class="logo">Karshi<span> sathi Shop</span></div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search for products, brands and more...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <!-- MOBILE + DESKTOP BOTH -->
+        <div class="top-links">
+            <a href="#"><i class="fa-solid fa-store"></i> Become Seller</a>
+            <a href="#"><i class="fa-solid fa-mobile-screen"></i> App</a>
+            <a href="#"><i class="fa-solid fa-user"></i> Login</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+        </div>
+
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li>Seeds</li>
+            <li>Crop Protection</li>
+            <li>Crop Nutrition</li>
+            <li>Farming Tools</li>
+            <li>Plants</li>
+            <li>Pots & Planters</li>
+            <li>Animal Feed & Care</li>
+        </ul>
+    </nav>
+</header>
+
+</body>
+</html>

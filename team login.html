@@ -168,6 +168,7 @@ function showLogin(){
 function doLogin(){
   let n=document.getElementById("name").value;
   if(n===""){alert("Name डाल भाई");return;}
+
   document.getElementById("userName").innerText=n;
   document.getElementById("loginBtn").style.display="none";
   document.getElementById("profileBox").style.display="block";

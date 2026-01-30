@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisan Saathi</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f6f5;padding-top:70px;}
+header{position:fixed;top:0;width:100%;background:#fff;box-shadow:0 4px 15px rgba(0,0,0,.08);z-index:1000;}
+.navbar{max-width:1200px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700;color:#2e7d32;}
+.logo img{height:40px;}
+.nav-links{display:flex;gap:25px;align-items:center;}
+.nav-links a{text-decoration:none;color:#2e7d32;font-weight:500;}
+.nav-links a:hover{color:#1b5e20;}
+.login-btn{
+  background:linear-gradient(135deg,#43a047,#2e7d32);
+  color:#fff;padding:8px 18px;border-radius:25px;
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;text-decoration:none;
+}
+.menu-btn{font-size:24px;color:#2e7d32;display:none;cursor:pointer;}
+.sidebar{position:fixed;top:0;left:-260px;width:260px;height:100vh;background:#2e7d32;padding:20px;transition:.3s;z-index:2000;}
+.sidebar .close-btn{font-size:26px;color:#fff;text-align:right;cursor:pointer;}
+.sidebar a{display:flex;align-items:center;gap:10px;padding:15px 0;color:#fff;text-decoration:none;font-size:16px;}
+.sidebar a:hover{background:rgba(255,255,255,.15);padding-left:10px;}
+
+.services-drop{position:relative;}
+.services-menu{
+  position:absolute;top:35px;left:0;background:#fff;border-radius:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);display:none;min-width:220px;
+}
+.services-menu a{padding:10px 15px;display:block;color:#333;text-decoration:none;}
+.services-menu a:hover{background:#e8f5e9;}
+
+@media(max-width:900px){
+  .nav-links,.login-btn{display:none;}
+  .menu-btn{display:block;}
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f6faf4;
+}
+
+/* HEADER */
+.header{
+    background:#eef8e8;
+    padding:40px 30px;
+    font-size:32px;
+    font-weight:600;
+    color:#3d6f1f;
+    position:relative;
+}
+
+.header::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:0;
+    width:40%;
+    height:100%;
+    background:url('leaf-pattern.png') no-repeat center/cover;
+    opacity:0.15;
+}
+
+/* FORM CONTAINER */
+.container{
+    background:#fff;
+    max-width:1200px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.container h2{
+    margin-bottom:20px;
+    font-size:22px;
+}
+
+/* GRID */
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.form-group label span{
+    color:red;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    padding:12px;
+    border:1px solid #cfd8dc;
+    border-radius:8px;
+    font-size:14px;
+}
+
+textarea{
+    resize:none;
+    min-height:120px;
+}
+
+/* FULL WIDTH */
+.full{
+    grid-column:1/-1;
+}
+
+/* BUTTON */
+.btn{
+    background:#3d6f1f;
+    color:#fff;
+    border:none;
+    padding:12px 35px;
+    border-radius:25px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#2f5517;
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+    .form-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:576px){
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f6f9f7;
+    padding:30px;
+}
+
+.support-section{
+    max-width:1200px;
+    margin:auto;
+}
+
+.support-header h2{
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+.support-header p{
+    color:#555;
+    margin-bottom:25px;
+}
+
+.support-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+.card-content{
+    max-width:60%;
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    border-radius:10px;
+    background:#e8f3e5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:15px;
+}
+
+.icon span{
+    font-size:22px;
+    color:#3b7a2a;
+}
+
+.card h3{
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.card p{
+    font-size:14px;
+    color:#666;
+    margin-bottom:15px;
+}
+
+.card button{
+    padding:10px 18px;
+    border:1.5px solid #3b7a2a;
+    background:#fff;
+    color:#3b7a2a;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.card button:hover{
+    background:#3b7a2a;
+    color:#fff;
+}
+
+.card img{
+    width:160px;
+    max-width:40%;
+}
+
+@media(max-width:768px){
+    .card{
+        flex-direction:column;
+        text-align:center;
+    }
+    .card-content{
+        max-width:100%;
+    }
+    .card img{
+        margin-top:15px;
+        width:180px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="closeMenu()">&times;</div>
+  <a href="#"><i class="fas fa-home"></i> Home</a>
+  <a href="#"><i class="fas fa-info-circle"></i> About</a>
+  <a href="#"><i class="fas fa-briefcase"></i> Services</a>
+  <a href="#"><i class="fas fa-seedling"></i> Seeds & Fertilizer</a>
+  <a href="#"><i class="fas fa-tractor"></i> Machinery</a>
+  <a href="#"><i class="fas fa-cloud-sun"></i> Weather</a>
+  <a href="#"><i class="fas fa-chart-line"></i> Market Price</a>
+  <a href="new login js.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+  <a href="jobs home.html"><i class="fas fa-briefcase"></i> Krishi Sathi Jobs</a>
+
+</div>
+
+<header>
+<div class="navbar">
+  <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909767.png">
+    Kisan Saathi
+  </div>
+
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+
+    <div class="services-drop">
+      <a href="#" onclick="toggleServices(event)">Services <i class="fas fa-chevron-down"></i></a>
+      <div class="services-menu" id="servicesMenu">
+        <a href="#"><i class="fas fa-seedling"></i> Seeds & Fertilizer</a>
+        <a href="#"><i class="fas fa-tractor"></i> Machinery Rent</a>
+        <a href="#"><i class="fas fa-cloud-sun"></i> Weather Update</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Market Price</a>
+        <a href="#"><i class="fas fa-phone"></i> Farmer Support</a>
+      </div>
+    </div>
+
+    <a href="#">People</a>
+    <a href="#">Articles</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- LOGIN -->
+  <a href="new login js.html" class="login-btn">
+    <i class="fas fa-sign-in-alt"></i> Login
+  </a>
+
+  <div class="menu-btn" onclick="openMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+</div>
+</header>
+
+
+<section class="support-section">
+
+    <div class="support-header">
+        <h2>Need Support on the Kisan Sarathi Portal? Contact Us</h2>
+        <p>Our team is available over video call and our ticketing tool to assist you with all issues.</p>
+    </div>
+
+    <div class="support-cards">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <div class="card-content">
+                <div class="icon"><span>☰</span></div>
+                <h3>Write to us</h3>
+                <p>Raise a ticket for your queries and our team will get in touch with you</p>
+                <button>Raise a support ticket</button>
+            </div>
+            <img src="img/write-us.png" alt="Write to us">
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <div class="card-content">
+                <div class="icon"><span>☰</span></div>
+                <h3>Check your request status</h3>
+                <p>You can now see the latest updates for the technical ticket you raised</p>
+                <button>Track Status</button>
+            </div>
+            <img src="img/track-status.png" alt="Track Status">
+        </div>
+
+    </div>
+
+</section>
+
+<div class="header">Helpdesk</div>
+
+<div class="container">
+    <h2>Write to us</h2>
+
+    <form>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Mobile <span>*</span></label>
+                <input type="tel" placeholder="Enter mobile number" required>
+            </div>
+
+            <div class="form-group">
+                <label>Name <span>*</span></label>
+                <input type="text" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email <span>*</span></label>
+                <input type="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label>User Type <span>*</span></label>
+                <select required>
+                    <option>Select User Type</option>
+                    <option>Farmer</option>
+                    <option>Officer</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>State <span>*</span></label>
+                <select required>
+                    <option>Select State</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>District <span>*</span></label>
+                <select required>
+                    <option>Select District</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Issue Type <span>*</span></label>
+                <select required>
+                    <option>Select Issue Type</option>
+                </select>
+            </div>
+
+            <div class="form-group full">
+                <label>Issue Details <span>*</span></label>
+                <textarea placeholder="Enter your query details"></textarea>
+            </div>
+
+            <div class="form-group full">
+                <label>Upload supporting file(s)</label>
+                <input type="file">
+            </div>
+
+            <div class="form-group full">
+                <button class="btn">Submit</button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

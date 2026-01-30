@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KisanShop Header</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+    /* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+body{
+  background:#f4f6f5;
+}
+
+/* ================= HEADER ================= */
+header{
+  background:#fff;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+/* TOP BAR */
+.top-bar{
+  max-width:1300px;
+  margin:auto;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* LOGO */
+.logo{
+  font-size:24px;
+  font-weight:600;
+  color:#1a7f37;
+  white-space:nowrap;
+}
+.logo span{color:#ffb703;}
+
+/* SEARCH */
+.search-box{
+  flex:1 1 100%;
+  display:flex;
+  align-items:center;
+  background:#f1f1f1;
+  border-radius:8px;
+  padding:8px 12px;
+}
+.search-box input{
+  width:100%;
+  border:none;
+  outline:none;
+  background:transparent;
+  font-size:14px;
+}
+.search-box i{color:#1a7f37;}
+
+/* TOP LINKS */
+.top-links{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:6px;
+}
+.top-links a{
+  text-decoration:none;
+  color:#333;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.top-links i{
+  color:#1a7f37;
+  font-size:16px;
+}
+
+/* NAVBAR */
+.navbar{
+  border-top:1px solid #eee;
+}
+.navbar ul{
+  max-width:1300px;
+  margin:auto;
+  padding:10px 14px;
+  list-style:none;
+  display:flex;
+  gap:22px;
+  overflow-x:auto;
+  white-space:nowrap;
+}
+.navbar li{
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+}
+.navbar li:hover{color:#1a7f37;}
+
+/* DESKTOP HEADER FIX */
+@media(min-width:769px){
+  .top-bar{flex-wrap:nowrap;}
+  .search-box{max-width:600px;flex:1;}
+  .top-links{width:auto;margin-top:0;}
+}
+
+/* ================= SLIDER ================= */
+.slider{
+  position:relative;
+  max-width:1300px;
+  margin:10px auto;   /* ✅ GAP FIX */
+  overflow:hidden;
+  border-radius:12px;
+}
+.slides{
+  display:flex;
+  transition:transform .6s ease;
+}
+.slide{min-width:100%;}
+.slide img{
+  width:100%;
+  display:block;
+}
+
+/* SLIDER ARROWS */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.4);
+  color:#fff;
+  border:none;
+  font-size:22px;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:50%;
+}
+.prev{left:10px;}
+.next{right:10px;}
+
+/* DOTS */
+.dots{
+  position:absolute;
+  bottom:10px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:6px;
+}
+.dot{
+  width:8px;
+  height:8px;
+  background:#ccc;
+  border-radius:50%;
+}
+.dot.active{background:#1a7f37;}
+
+/* ================= BRANDS ================= */
+.brands-container{
+  max-width:1300px;
+  margin:20px auto;
+  padding:0 15px;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+.brands-wrapper{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+}
+.brands-wrapper::-webkit-scrollbar{display:none;}
+.brand-card{
+  min-width:100px;
+  height:80px;
+  background:#fff;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+.brand-card img{
+  max-width:80px;
+  max-height:60px;
+  object-fit:contain;
+}
+
+/* ================= FEATURES ================= */
+.features{
+  max-width:1300px;
+  margin:auto;
+  padding:30px 15px;   /* ✅ margin remove → padding use */
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.feature-box{
+  background:#fff;
+  border-radius:16px;
+  padding:18px;
+  display:flex;
+  gap:15px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+/* FEATURES RESPONSIVE */
+@media(max-width:900px){
+  .features{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  .features{grid-template-columns:1fr;}
+}
+
+/* ================= CATEGORIES ================= */
+.category-section{
+  max-width:1300px;
+  margin:auto;
+  padding:30px 15px;
+}
+.category-section h2{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:25px;
+}
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:30px 20px;
+}
+.category-card{text-align:center;}
+.category-card img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:3px solid #eee;
+  object-fit:cover;
+}
+
+/* CATEGORY RESPONSIVE */
+@media(max-width:1200px){
+  .categories{grid-template-columns:repeat(4,1fr);}
+}
+@media(max-width:768px){
+  .categories{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:480px){
+  .categories{grid-template-columns:repeat(3,1fr);}
+  .category-card img{width:90px;height:90px;}
+}
+.deals-header{
+  margin-bottom:15px;
+}
+
+.deals-header h2{
+  font-size:24px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:15px;
+}
+
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  position:relative;
+}
+
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:linear-gradient(45deg,#ff7a00,#ff9800);
+  color:#fff;
+  font-size:12px;
+  padding:5px 10px;
+  border-radius:20px;
+  font-weight:600;
+}
+
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:contain;
+}
+
+.title{
+  font-size:14px;
+  font-weight:500;
+  margin:8px 0;
+}
+
+.price{
+  font-size:18px;
+  font-weight:600;
+}
+
+.old-price{
+  text-decoration:line-through;
+  color:#999;
+  font-size:14px;
+  margin-left:5px;
+}
+
+.save{
+  color:#d35400;
+  font-size:13px;
+  margin:5px 0;
+}
+
+.size{
+  margin-top:6px;
+}
+
+.size select{
+  width:100%;
+  padding:6px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="top-bar">
+
+        <div class="logo">Karshi<span> sathi Shop</span></div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search for products, brands and more...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <!-- MOBILE + DESKTOP BOTH -->
+        <div class="top-links">
+            <a href="#"><i class="fa-solid fa-store"></i> Become Seller</a>
+            <a href="#"><i class="fa-solid fa-mobile-screen"></i> App</a>
+            <a href="seller login.html"><i class="fa-solid fa-user"></i> Login</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i> Cart</a>
+        </div>
+
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li>Seeds</li>
+            <li>Crop Protection</li>
+            <li>Crop Nutrition</li>
+            <li>Farming Tools</li>
+            <li>Plants</li>
+            <li>Pots & Planters</li>
+            <li>Animal Feed & Care</li>
+        </ul>
+    </nav>
+</header>
+
+<div class="slider">
+    <div class="slides" id="slides">
+        <div class="slide">
+            <img src="https://www.kisanshop.in/assets/images/slider/wolf-garden-tools-desktop.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://www.kisanshop.in/assets/images/slider/Plants-desktop.jpg" alt="">
+        </div>
+        <div class="slide">
+            <img src="https://www.kisanshop.in/assets/images/slider/Protect-Your-Crop.jpg" alt="">
+        </div>
+    </div>
+
+    <button class="arrow prev" onclick="prevSlide()">‹</button>
+    <button class="arrow next" onclick="nextSlide()">›</button>
+
+    <div class="dots" id="dots"></div>
+</div>
+
+<div class="features">
+
+    <div class="feature-box">
+        <div class="icon">
+            ✔
+        </div>
+        <div class="feature-text">
+            <h4>100% Original Products</h4>
+            <p>Trusted brands only</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            🚚
+        </div>
+        <div class="feature-text">
+            <h4>Free Delivery*</h4>
+            <p>On eligible orders</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            🔒
+        </div>
+        <div class="feature-text">
+            <h4>Secure Payments</h4>
+            <p>Encrypted checkout</p>
+        </div>
+    </div>
+
+    <div class="feature-box">
+        <div class="icon">
+            🎧
+        </div>
+        <div class="feature-text">
+            <h4>Expert Support</h4>
+            <p>We're here to help</p>
+        </div>
+    </div>
+
+</div>
+
+
+<section class="category-section">
+    <h2>Shop by Categories</h2>
+
+    <div class="categories">
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/seeds.jpg">
+            <p>Seeds</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/seeds.jpg   ">
+            <p>Crop Protection</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/Crop-Nutrition.jpg">
+            <p>Crop Nutrition</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/Farming-Tools.jpg">
+            <p>Farming Tools</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/Plant.jpg">
+            <p>Plants</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/Pots-Planters.jpg">
+            <p>Pots & Planters</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/flower-seeds.jpg">
+            <p>Flower Seeds</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/flower-seeds.jpg">
+            <p>Insecticides</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/Fungicides.jpg">
+            <p>Fungicides</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/Herbicides.jpg">
+            <p>Herbicides</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/organic-farming.jpg">
+            <p>Organic Farming</p>
+        </div>
+
+        <div class="category-card">
+            <img src="https://www.kisanshop.in/assets/images/categories/Animal-Feed-Care.jpg">
+            <p>Animal Feed & Care</p>
+        </div>
+
+    </div>
+</section>
+
+<h2>Brands</h2>
+<div class="brands-container">
+    <button class="arrow-btn left">&#10094;</button>
+    <div class="brands-wrapper">
+        <div class="brand-card"><img src="https://www.kisanshop.in/assets/images/brand/seminis.jpg" alt="Seminis"></div>
+        <div class="brand-card"><img src="https://www.kisanshop.in/assets/images/brand/syngenta.jpg" alt="Syngenta"></div>
+        <div class="brand-card"><img src="https://www.kisanshop.in/assets/images/brand/bayer.jpg" alt="UPL"></div>
+        <div class="brand-card"><img src="https://www.kisanshop.in/assets/images/brand/adama.jpg" alt="Bayer"></div>
+        <div class="brand-card"><img src="https://www.kisanshop.in/assets/images/brand/dhanuka.jpg" alt="Adama"></div>
+        <div class="brand-card"><img src="https://www.kisanshop.in/assets/images/brand/vnr.jpg" alt="Dhanuka"></div>
+        <div class="brand-card"><img src="https://www.kisanshop.in/assets/images/brand/basf.jpg" alt="VNR"></div>
+    </div>
+    <button class="arrow-btn right">&#10095;</button>
+</div>
+
+
+
+
+
+
+<div class="deals-header">
+  <h2>Best Deals</h2>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="badge">26% OFF</div>
+    <img src="https://www.kisanshop.in/uploads/katyayani-docter-insecticide-750-ml-250-ml-x-3.webp">
+    <div class="title">Katyayani Doctor Insecticide</div>
+    <div class="price">₹530 <span class="old-price">₹720</span></div>
+    <div class="save">Save ₹190</div>
+    <div class="size">
+      <select>
+        <option>250 ML x 1</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="badge">35% OFF</div>
+    <img src="https://www.kisanshop.in/uploads/geolife-no-virus-tc-botanical-antiviral-fertilizer.jpg">
+    <div class="title">Geolife No Virus</div>
+    <div class="price">₹317 <span class="old-price">₹488</span></div>
+    <div class="save">Save ₹171</div>
+    <div class="size">
+      <select>
+        <option>250 ML</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="badge">50% OFF</div>
+    <img src="https://www.kisanshop.in/uploads/iris-hybrid-f1-musk-melon-seeds-15-seeds-x-1-2.webp">
+    <div class="title">Iris Hybrid F1 Musk Melon</div>
+    <div class="price">₹150 <span class="old-price">₹299</span></div>
+    <div class="save">Save ₹149</div>
+    <div class="size">
+      <select>
+        <option>15 Seeds</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="badge">46% OFF</div>
+    <img src="https://www.kisanshop.in/uploads/iris-french-beans-seeds-15-seeds-2.webp">
+    <div class="title">Iris Hybrid F1 Watermelon</div>
+    <div class="price">₹160 <span class="old-price">₹299</span></div>
+    <div class="save">Save ₹139</div>
+    <div class="size">
+      <select>
+        <option>15 Seeds</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="badge">45% OFF</div>
+    <img src="https://www.kisanshop.in/uploads/hpm-super-imida-systemic-insecticide.jpg">
+    <div class="title">Iris French Beans</div>
+    <div class="price">₹165 <span class="old-price">₹299</span></div>
+    <div class="save">Save ₹134</div>
+    <div class="size">
+      <select>
+        <option>15 Seeds</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+
+                              
+<script>
+    const wrapper = document.querySelector('.brands-wrapper');
+    const btnLeft = document.querySelector('.arrow-btn.left');
+    const btnRight = document.querySelector('.arrow-btn.right');
+
+    btnLeft.addEventListener('click', () => {
+        wrapper.scrollBy({ left: -120, behavior: 'smooth' });
+    });
+
+    btnRight.addEventListener('click', () => {
+        wrapper.scrollBy({ left: 120, behavior: 'smooth' });
+    });
+
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+const dotsBox = document.getElementById("dots");
+let index = 0;
+
+// dots create
+for(let i=0;i<total;i++){
+    const d = document.createElement("div");
+    d.className = "dot";
+    d.onclick = ()=>goSlide(i);
+    dotsBox.appendChild(d);
+}
+updateDots();
+
+function showSlide(){
+    slides.style.transform = `translateX(-${index*100}%)`;
+    updateDots();
+}
+function nextSlide(){
+    index = (index+1)%total;
+    showSlide();
+}
+function prevSlide(){
+    index = (index-1+total)%total;
+    showSlide();
+}
+function goSlide(i){
+    index = i;
+    showSlide();
+}
+function updateDots(){
+    document.querySelectorAll(".dot").forEach((d,i)=>{
+        d.classList.toggle("active", i===index);
+    });
+}
+
+// auto slide
+setInterval(nextSlide, 4000);
+</script>
+
+</body>
+</html>
+
+

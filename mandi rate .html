@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandi Report System</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body{
+  font-family: Arial, sans-serif;
+  background:#f4f6f7;
+}
+
+.container{
+  max-width:1100px;
+  background:#fff;
+  margin:auto;
+  padding:20px;
+  box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+h2{
+  margin-bottom:20px;
+}
+
+.row{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.field{
+  flex:1;
+  min-width:220px;
+}
+
+label{
+  font-weight:bold;
+}
+
+select,input{
+  width:100%;
+  padding:8px;
+  margin-top:5px;
+}
+
+.captcha-box{
+  margin:20px 0;
+}
+
+.captcha{
+  background:#fff3cd;
+  padding:10px 15px;
+  font-size:22px;
+  border:1px solid #ccc;
+  letter-spacing:3px;
+}
+
+button{
+  background:#d32f2f;
+  color:white;
+  padding:8px 25px;
+  border:none;
+  cursor:pointer;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+  display:none;
+}
+
+th,td{
+  border:1px solid #ccc;
+  padding:10px;
+  text-align:center;
+}
+
+th{
+  background:#e9ecef;
+}
+
+@media(max-width:768px){
+  .row{
+    flex-direction:column;
+  }
+}
+
+</style>
+<script>
+    const mandiData = {
+  Badwani: [
+    "Badwani Mandi",
+    "Sendhwa Mandi",
+    "Pansemal Mandi",
+    "Rajpur Mandi",
+    "Thikri Mandi"
+  ],
+  Khargone: [
+    "Khargone Mandi",
+    "Bhagwanpura Mandi",
+    "Kasrawad Mandi",
+    "Maheshwar Mandi",
+    "Segaon Mandi"
+  ]
+};
+
+function loadMandis(){
+  const district = document.getElementById("district").value;
+  const mandiSelect = document.getElementById("mandi");
+
+  mandiSelect.innerHTML = `<option value="">-- मंडी चुनें --</option>`;
+
+  if(district && mandiData[district]){
+    mandiData[district].forEach(mandi=>{
+      const option = document.createElement("option");
+      option.value = mandi;
+      option.textContent = mandi;
+      mandiSelect.appendChild(option);
+    });
+  }
+}
+
+function showResult(){
+  const district = document.getElementById("district").value;
+  const mandi = document.getElementById("mandi").value;
+  const crop = document.getElementById("crop").value;
+
+  if(!district || !mandi){
+    alert("कृपया जिला और मंडी चुनें");
+    return;
+  }
+
+  const table = document.getElementById("resultTable");
+  const tbody = table.querySelector("tbody");
+
+  tbody.innerHTML = `
+    <tr>
+      <td>${district}</td>
+      <td>${mandi}</td>
+      <td>${crop}</td>
+      <td>₹2100</td>
+      <td>₹2600</td>
+      <td>₹2350</td>
+    </tr>
+  `;
+
+  table.style.display = "table";
+}
+
+</script>
+</head>
+<body>
+
+<div class="container">
+<h2>रिपोर्ट – मंडी / फसल अनुसार</h2>
+
+<div class="row">
+  <div class="field">
+    <label>रिपोर्ट का प्रकार</label>
+    <select>
+      <option>मंडी अनुसार</option>
+      <option>फसल अनुसार</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>जिला चुनें</label>
+    <select id="district" onchange="loadMandis()">
+      <option value="">-- जिला चुनें --</option>
+      <option value="Badwani">Badwani</option>
+      <option value="Khargone">Khargone</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>मंडी चुनें</label>
+    <select id="mandi">
+      <option value="">-- पहले जिला चुनें --</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+  <div class="field">
+    <label>फसल चुनें</label>
+    <select id="crop">
+      <option>गेहूं</option>
+      <option>चना</option>
+      <option>सोयाबीन</option>
+      <option>मक्का</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>दिनांक से</label>
+    <input type="date">
+  </div>
+
+  <div class="field">
+    <label>दिनांक तक</label>
+    <input type="date">
+  </div>
+</div>
+
+<div class="captcha-box">
+  <span class="captcha">cVKf83</span>
+  <input type="text" placeholder="Captcha डालें">
+  <button onclick="showResult()">देखें</button>
+</div>
+
+<table id="resultTable">
+<thead>
+<tr>
+<th>जिला</th>
+<th>मंडी</th>
+<th>फसल</th>
+<th>न्यूनतम ₹</th>
+<th>अधिकतम ₹</th>
+<th>मॉडल ₹</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

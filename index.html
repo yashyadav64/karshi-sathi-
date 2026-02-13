@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+=<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -593,185 +593,180 @@ html, body{
     </div>
 </section>
 
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kisan Sarathi Footer</title>
+<title>Kisan Sarathi Final Footer</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <style>
-body {
-    margin: 0;
-    font-family: Poppins, sans-serif;
-    background: #f5f5f5;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Footer */
-footer {
-    background: #e0e0e0;
-    padding: 40px 20px;
-    color: #333;
-}
+    body { margin: 0; font-family: 'Poppins', sans-serif; }
 
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.footer-column {
-    flex: 1 1 220px;
-    margin: 10px 20px;
-}
-
-.footer-column h4 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 10px;
-}
-
-.footer-column ul li a {
-    text-decoration: none;
-    color: #2e7d32;
-    transition: color 0.3s;
-}
-.footer-column ul li a:hover {
-    color: #1b5e20;
-}
-
-.footer-column p {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.footer-social {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-.footer-social a {
-    display: flex;
-    width: 35px;
-    height: 35px;
-    background: #fff;
-    color: #2e7d32;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 1px solid #2e7d32;
-    transition: all 0.3s;
-}
-.footer-social a:hover {
-    background: #2e7d32;
-    color: #fff;
-}
-
-/* Footer bottom */
-.footer-bottom {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #bdbdbd;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-}
-
-/* GDInfoCode credit */
-.footer-credit img {
-    height: 40px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
-/* Responsive */
-@media(max-width:768px) {
-    .footer-container {
-        flex-direction: column;
-        gap: 20px;
+    /* Main Dark Footer */
+    .main-footer {
+        background: #111111; /* Pure Dark */
+        color: #ffffff;
+        padding: 60px 0 20px 0;
+        border-top: 4px solid #2e7d32;
     }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+
+    /* Column Headings */
+    .footer-col h4 {
+        font-size: 18px;
+        color: #4ade80; /* Light Green Heading */
+        margin-bottom: 25px;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .footer-col h4::after {
+        content: '';
+        width: 30px;
+        height: 2px;
+        background: #ffffff;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+    }
+
+    /* Links Styling - Jo pehle nahi dikh rahe the */
+    .footer-col ul { list-style: none; padding: 0; }
+    .footer-col ul li { margin-bottom: 12px; }
+    
+    .footer-col ul li a {
+        color: #cbd5e1; /* Silver Gray color for readability */
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-col ul li a i {
+        font-size: 10px;
+        margin-right: 10px;
+        color: #4ade80;
+    }
+
+    .footer-col ul li a:hover {
+        color: #ffffff;
+        transform: translateX(10px);
+    }
+
+    /* Social Icons */
+    .social-links { display: flex; gap: 15px; margin-top: 20px; }
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        background: #222;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    .social-links a:hover { background: #2e7d32; transform: translateY(-5px); }
+
+    /* GDInfoCode Credit Box */
+    .credit-card {
+        background: #1a1a1a;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border: 1px solid #333;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .credit-card img { height: 35px; filter: brightness(0) invert(1); }
+    .credit-card span { font-size: 12px; color: #94a3b8; line-height: 1.4; }
+    .credit-card b { color: #4ade80; display: block; }
+
+    /* Bottom Bar */
     .footer-bottom {
-        flex-direction: column;
         text-align: center;
-        gap: 10px;
+        padding-top: 40px;
+        margin-top: 40px;
+        border-top: 1px solid #222;
+        font-size: 13px;
+        color: #64748b;
     }
-}
+
+    @media (max-width: 768px) {
+        .container { grid-template-columns: 1fr; text-align: left; }
+    }
 </style>
 </head>
 <body>
 
-<footer>
-    <div class="footer-container">
-        <!-- About -->
-        <div class="footer-column">
-            <p>A joint initiative of Indian Council of Agricultural Research (ICAR) and Ministry of Electronics and Information Technology (MeitY), implemented by ICAR-IASRI and Digital India Corporation (DIC).</p>
-            <p><strong>Last Updated: 14/12/2025</strong></p>
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-col">
+            <h4>Kisan Sarathi</h4>
+            <p style="font-size: 14px; color: #94a3b8; line-height: 1.6;">A joint initiative of ICAR and MeitY, empowering Indian farmers with digital technology and real-time information.</p>
+            <p style="margin-top: 15px; font-size: 13px; font-weight: 600;">Last Updated: 13 Feb 2026</p>
         </div>
 
-        <!-- Useful Links -->
-        <div class="footer-column">
+        <div class="footer-col">
             <h4>Useful Links</h4>
             <ul>
-                <li><a href="#">ICAR</a></li>
-                <li><a href="#">Agmarknet (Mandi Rates)</a></li>
-                <li><a href="#">National Agriculture Market</a></li>
-                <li><a href="#">India Meteorological Department</a></li>
-                <li><a href="#">Pradhan Mantri Fasal Bima Yojana</a></li>
-                <li><a href="#">Agri Stack</a></li>
-                <li><a href="#">PM KISAN SAMMAN NIDHI</a></li>
-                <li><a href="#">Soil Health Card</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> ICAR Official</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Mandi Rates</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> National Agri Market</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Weather Updates</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Soil Health Card</a></li>
             </ul>
         </div>
 
-        <!-- Important Links -->
-        <div class="footer-column">
+        <div class="footer-col">
             <h4>Important Links</h4>
             <ul>
-                <li><a href="#">Farmer's Corner</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">mySchemes</a></li>
-                <li><a href="#">Support</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Farmer's Corner</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Latest Events</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Resources & Docs</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> mySchemes Portal</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Help & Support</a></li>
+                 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScQLYr_IH8FLfMoWSeAi3_l5wNg_GR67AY3yVH7x2ChKY4o2w/viewform?usp=header"><i class="fas fa-chevron-right"></i> karshi sathi registration</a></li>
             </ul>
         </div>
 
-        <!-- Connect & Credit -->
-        <div class="footer-column">
-            <h4>Connect with us</h4>
-            <div class="footer-social">
+        <div class="footer-col">
+            <h4>Get In Touch</h4>
+            <div class="social-links">
                 <a href="#"><i class="fab fa-youtube"></i></a>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-x-twitter"></i></a>
             </div>
-            <div class="footer-credit" style="margin-top:20px;">
-                <img src="gdinfocode.png" alt="GDInfoCode Logo">
-                <span>Designed and Developed by GDInfoCode</span>
+
+            <div class="credit-card">
+                <img src="gdinfocode.png" alt="GD Logo">
+                <span>Designed & Developed by <br><b>GDInfoCode</b></span>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>Digital India Corporation (DIC) | Ministry of Electronics & IT (MeitY) | Government of India</p>
+        <p>Digital India Corporation (DIC) | MeitY | Government of India</p>
+        <p style="margin-top: 5px;">&copy; 2026 Kisan Sarathi. All Rights Reserved.</p>
     </div>
 </footer>
 
 </body>
 </html>
+
 
 <script>
 function toggleServices(e){
